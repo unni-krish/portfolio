@@ -755,7 +755,7 @@
                 font-size: 1rem;
             }
             
-            .section-title {
+            .text-2xl sm:text-3xl md:text-4xl {
                 font-size: 2rem;
             }
             
@@ -769,7 +769,7 @@
                 font-size: 2rem;
             }
             
-            .section-title {
+            .text-2xl sm:text-3xl md:text-4xl {
                 font-size: 1.75rem;
             }
             
@@ -788,7 +788,66 @@
                 margin: 0 5px;
             }
         }
-    </style>
+    
+@media (max-width: 768px) {
+  .timeline-content {
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Fix hero name breaking screen */
+  .hero h1 {
+    word-break: break-word;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  /* Adjust timeline layout to remove central line and dots */
+  .timeline-line {
+    display: none !important;
+  }
+
+  .timeline-content::after {
+    display: none !important;
+  }
+
+  .timeline-item .timeline-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  /* Achievements section stacking icon and text */
+  .about-card .flex.items-center {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .about-card .mr-4 {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Contact section icon sizes */
+  .contact .w-10.h-10 {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .contact .social-icons-container a:last-child {
+    margin-top: 0px !important;
+  }
+
+  .contact .social-icon i.fab.fa-medium {
+    margin-top: 2px !important;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -840,9 +899,11 @@
     <section id="home" class="hero">
         <div id="particles-js"></div>
         <div class="hero-content">
-            <div class="container mx-auto">
-                <h1 class="text-5xl font-bold mb-4 typewriter">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">Unnikrishnan R S</span></h1>
-                <p class="text-xl mb-8 fade-in">Turning Data Into Magic</p>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 typewriter">
+                    Hi, I'm<span class="block sm:inline"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">Unnikrishnan R S</span></span>
+                  </h1>
+                <p class="text-base sm:text-lg md:text-xl mb-8 fade-in">Turning Data Into Magic</p>
                 <a href="portfolio/resume.pdf" download="Unnikrishnan_Resume.pdf" class="glow-button inline-block bounce-in">Download Resume</a>
 
             </div>
@@ -855,11 +916,11 @@
             <h2 class="text-4xl font-bold mb-16 text-center">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">Me</span></h2>
             
             <div class="about-card">
-                <div class="flex flex-col md:flex-row items-center">
+                <div class="flex flex-col md:flex-row flex-wrap items-center">
                     <div class="md:w-1/3 mb-8 md:mb-0">
                         <div class="w-64 h-64 mx-auto rounded-full bg-gradient-to-r from-purple-600 to-blue-400 p-1">
                             <div class="w-full h-full rounded-full overflow-hidden">
-                                <img src="Unnikrishnan.jpeg" alt="Unnikrishnan" class="w-full h-full object-cover">
+                                <img src="Unnikrishnan.jpeg" alt="Unnikrishnan" class="w-full h-auto object-cover">
                             </div>
                         </div>
                     </div>
@@ -872,13 +933,13 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 <div class="about-card">
                     <div class="flex flex-col items-center text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
-                        <h3 class="text-xl font-semibold mb-2">Innovation-Driven</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Innovation-Driven</h3>
                         <p>Passionate about exploring cutting-edge technologies and creating novel solutions that drive real-world impact.</p>
                     </div>
                 </div>
@@ -888,7 +949,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
-                        <h3 class="text-xl font-semibold mb-2">Team Contributor</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Team Contributor</h3>
                         <p>Actively contributed to data science projects by collaborating with team members, sharing insights, and supporting the implementation of efficient workflows to achieve quality outcomes.</p>
 
                     </div>
@@ -899,7 +960,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-purple-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                         </svg>
-                        <h3 class="text-xl font-semibold mb-2">Process Optimizer</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Process Optimizer</h3>
                         <p>Skilled at implementing MLOps best practices, streamlining workflows, and building scalable solutions that deliver lasting value.</p>
                     </div>
                 </div>
@@ -909,13 +970,13 @@
     
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <div class="container mx-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold mb-16 text-center">Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">Projects</span></h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="project-card" style="background-image: url('pl.jpg'); background-size: cover; background-position: center;">
                     <div class="project-content">
-                        <h3 class="text-xl font-semibold mb-2">AI-Powered Staff Scheduling Platform</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">AI-Powered Staff Scheduling Platform</h3>
                         <p class="text-sm mb-4">Python, Scikit-Learn, Time Series Forecasting, FastAPI, SQL</p>
                         <p class="mb-4 text-gray-300">Built an AI-powered staff scheduling application to optimize daily workforce allocation in hospital environments, reducing overstaffing and improving operational efficiency by 30%.</p>
                         <div class="flex space-x-3">
@@ -926,7 +987,7 @@
                 
                 <div class="project-card" style="background-image: url('cw.jpg'); background-size: cover; background-position: center;">
                     <div class="project-content">
-                        <h3 class="text-xl font-semibold mb-2">Electronic Medical Record Risk Categorization</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Electronic Medical Record Risk Categorization</h3>
                         <p class="text-sm mb-4">Python, Airflow, SQL, Scikit-Learn, NLP, MLOps</p>
                         <p class="mb-4 text-gray-300">Developed an end-to-end EMR risk analysis platform utilizing NLP techniques and supervised machine learning algorithms, reducing categorization time by 99%.</p>
                         <div class="flex space-x-3">
@@ -937,7 +998,7 @@
                 
                 <div class="project-card" style="background-image: url('in.jpg'); background-size: cover; background-position: center;">
                     <div class="project-content">
-                        <h3 class="text-xl font-semibold mb-2">AI-Powered EDA Report Generator</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">AI-Powered EDA Report Generator</h3>
                         <p class="text-sm mb-4">Python, Pandas, Seaborn, Scikit-Learn, OpenAI, NLP</p>
                         <p class="mb-4 text-gray-300">Developed an automated EDA tool that generates visualizations and produces structured reports with OpenAI-powered insights, reducing manual analysis effort by 90%.</p>
                         <div class="flex space-x-3">
@@ -954,7 +1015,7 @@
         <div class="container mx-auto skills-content">
             <h2 class="text-4xl font-bold mb-16 text-center">Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">Skills</span></h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="skill-category">
                     <h3 class="text-2xl font-semibold mb-6 text-center">Languages & Databases</h3>
                     
@@ -1061,7 +1122,7 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Nov 2024 - Present</div>
-                        <h3 class="text-xl font-semibold mb-2">Data Scientist</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Data Scientist</h3>
                         <h4 class="text-lg mb-4">LogicPlum, Kochi, Kerala</h4>
                         <p>Leading data science initiatives, managing team workflows, and driving project delivery with a focus on MLOps best practices and stakeholder communication.</p>
                     </div>
@@ -1070,7 +1131,7 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Aug 2023 - Nov 2024</div>
-                        <h3 class="text-xl font-semibold mb-2">Associate Data Scientist</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Associate Data Scientist</h3>
                         <h4 class="text-lg mb-4">LogicPlum, Kochi, Kerala</h4>
                         <p>Developed machine learning models, implemented data pipelines, and collaborated with cross-functional teams to deliver data-driven solutions.</p>
                     </div>
@@ -1079,7 +1140,7 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Jul 2023 - Aug 2023</div>
-                        <h3 class="text-xl font-semibold mb-2">Data Scientist Intern</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Data Scientist Intern</h3>
                         <h4 class="text-lg mb-4">LogicPlum, Remote</h4>
                         <p>Gained practical experience in data analysis, model development, and ML implementation through hands-on projects and mentorship.</p>
                     </div>
@@ -1088,7 +1149,7 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Apr 2018 - Mar 2022</div>
-                        <h3 class="text-xl font-semibold mb-2">Bachelor in Computer Science</h3>
+                        <h3 class="text-base sm:text-lg md:text-xl font-semibold mb-2">Bachelor in Computer Science</h3>
                         <h4 class="text-lg mb-4">Kerala University, Kerala</h4>
                         <p>Developed a strong foundation in computer science principles, algorithms, and programming, with a focus on data structures and machine learning.</p>
                     </div>
@@ -1098,7 +1159,7 @@
             <div class="mt-24">
                 <h3 class="text-2xl font-semibold mb-8 text-center">Achievements & Awards</h3>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div class="about-card">
                         <div class="flex items-center mb-4">
                             <div class="mr-4 bg-gradient-to-r from-purple-600 to-blue-400 p-3 rounded-lg">
@@ -1174,7 +1235,7 @@
             <h2 class="text-4xl font-bold mb-16 text-center">Get In <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">Touch</span></h2>
             
             <div class="contact-card">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
                     <div>
                         <h3 class="text-2xl font-semibold mb-6">Let's Connect</h3>
                         <p class="mb-8">I'm always interested in new opportunities, collaborations, or just a friendly chat about data science and AI. Feel free to reach out through any of the channels below.</p>
@@ -1229,24 +1290,26 @@
                     </div>
                     
                     <div>
-                        <form>
+                        <form id="contactForm" method="POST">
+                            <div id="formAlert" class="hidden mb-6 p-4 rounded-lg bg-green-600 text-white font-medium"></div>
+                            
                             <div class="mb-6">
-                                <label for="name" class="block mb-2 font-medium">Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 border border-gray-800" placeholder="Your name">
+                              <label for="name" class="block mb-2 font-medium">Name</label>
+                              <input type="text" name="name" id="name" required class="w-full px-4 py-3 bg-gray-900 rounded-lg focus:outline-none border border-gray-800" placeholder="Your name">
                             </div>
                             
                             <div class="mb-6">
-                                <label for="email" class="block mb-2 font-medium">Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 border border-gray-800" placeholder="Your email">
+                              <label for="email" class="block mb-2 font-medium">Email</label>
+                              <input type="email" name="_replyto" id="email" required class="w-full px-4 py-3 bg-gray-900 rounded-lg focus:outline-none border border-gray-800" placeholder="Your email">
                             </div>
                             
                             <div class="mb-6">
-                                <label for="message" class="block mb-2 font-medium">Message</label>
-                                <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 border border-gray-800" placeholder="Your message"></textarea>
+                              <label for="message" class="block mb-2 font-medium">Message</label>
+                              <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 bg-gray-900 rounded-lg focus:outline-none border border-gray-800" placeholder="Your message"></textarea>
                             </div>
                             
                             <button type="submit" class="glow-button w-full">Send Message</button>
-                        </form>
+                          </form>
                     </div>
                 </div>
             </div>
@@ -1264,260 +1327,336 @@
     <!-- Scripts -->
     <script>
         // Preloader
-        window.addEventListener('load', function() {
-            document.querySelector('.loader').classList.add('fade-out');
-            setTimeout(function() {
-                document.querySelector('.loader').style.display = 'none';
-            }, 1000);
-            
-            // Initialize animations
-            initAnimations();
-        });
+window.addEventListener('load', function() {
+    document.querySelector('.loader').classList.add('fade-out');
+    setTimeout(function() {
+        document.querySelector('.loader').style.display = 'none';
+    }, 1000);
+    
+    // Initialize animations
+    initAnimations();
+});
+
+// Custom cursor
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', function(e) {
+    const posX = e.clientX;
+    const posY = e.clientY;
+    
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+    
+    cursorOutline.style.left = `${posX}px`;
+    cursorOutline.style.top = `${posY}px`;
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    // Check for scroll animations
+    animateOnScroll();
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+mobileMenuBtn.addEventListener('click', function() {
+    this.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+});
+
+// Close mobile menu when clicking a link
+const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        mobileMenuBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    });
+});
+
+// Navigation active state
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', function() {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
         
-        // Custom cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        
-        window.addEventListener('mousemove', function(e) {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            
-            cursorOutline.style.left = `${posX}px`;
-            cursorOutline.style.top = `${posY}px`;
-        });
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        if (window.scrollY >= (sectionTop - 300)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Scroll animations
+function initAnimations() {
+    // Initialize particles.js
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
             }
-            
-            // Check for scroll animations
-            animateOnScroll();
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
-        });
-        
-        // Close mobile menu when clicking a link
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuBtn.classList.remove('open');
-                mobileMenu.classList.remove('open');
-            });
-        });
-        
-        // Navigation active state
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        window.addEventListener('scroll', function() {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Scroll animations
-        function initAnimations() {
-            // Initialize particles.js
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#ffffff"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
                     "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#ffffff",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 6,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
+                        "opacity": 1
                     }
                 },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 400,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
                 },
-                "retina_detect": true
-            });
-        }
-        
-        // Animate elements when scrolled into view
-        function animateOnScroll() {
-            // About cards animation
-            const aboutCards = document.querySelectorAll('.about-card');
-            aboutCards.forEach(card => {
-                if (isInViewport(card) && !card.classList.contains('animate')) {
-                    card.classList.add('animate');
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
                 }
-            });
-            
-            // Project cards animation
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
-                if (isInViewport(card) && !card.classList.contains('animate')) {
-                    card.classList.add('animate');
-                }
-            });
-            
-            // Skill categories animation
-            const skillCategories = document.querySelectorAll('.skill-category');
-            skillCategories.forEach(category => {
-                if (isInViewport(category) && !category.classList.contains('animate')) {
-                    category.classList.add('animate');
-                }
-            });
-            
-            // Timeline items animation
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach(item => {
-                if (isInViewport(item) && !item.classList.contains('animate')) {
-                    item.classList.add('animate');
-                }
-            });
-            
-            // Contact card animation
-            const contactCard = document.querySelector('.contact-card');
-            if (isInViewport(contactCard) && !contactCard.classList.contains('animate')) {
-                contactCard.classList.add('animate');
             }
+        },
+        "retina_detect": true
+    });
+}
+
+// Animate elements when scrolled into view
+function animateOnScroll() {
+    // About cards animation
+    const aboutCards = document.querySelectorAll('.about-card');
+    aboutCards.forEach(card => {
+        if (isInViewport(card) && !card.classList.contains('animate')) {
+            card.classList.add('animate');
         }
-        
-        // Helper function to check if element is in viewport
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
-                rect.bottom >= 0
-            );
+    });
+    
+    // Project cards animation
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        if (isInViewport(card) && !card.classList.contains('animate')) {
+            card.classList.add('animate');
         }
+    });
+    
+    // Skill categories animation
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach(category => {
+        if (isInViewport(category) && !category.classList.contains('animate')) {
+            category.classList.add('animate');
+        }
+    });
+    
+    // Timeline items animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        if (isInViewport(item) && !item.classList.contains('animate')) {
+            item.classList.add('animate');
+        }
+    });
+    
+    // Contact card animation
+    const contactCard = document.querySelector('.contact-card');
+    if (contactCard && isInViewport(contactCard) && !contactCard.classList.contains('animate')) {
+        contactCard.classList.add('animate');
+    }
+}
+
+// Helper function to check if element is in viewport
+function isInViewport(element) {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+        rect.bottom >= 0
+    );
+}
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Form submission handling
+const getEndpoint = () => {
+    // This function constructs the Formspree endpoint from parts
+    // Making it harder for bots to scrape from source code
+    const parts = [
+        'https://',
+        'form',
+        'spree',
+        '.io/f/',
+        'xdkeyzvp'
+    ];
+    return parts.join('');
+};
+
+// Add event listener once the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const form = this;
+            const formData = new FormData(form);
+            const formAlert = document.getElementById('formAlert');
+            const submitButton = form.querySelector('button[type="submit"]');
+            
+            // Disable the submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Get the endpoint dynamically
+            const endpoint = getEndpoint();
+            
+            fetch(endpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Success - show the success message
+                formAlert.textContent = 'Thank you! Your message has been sent successfully.';
+                formAlert.classList.remove('hidden');
+                formAlert.classList.add('bg-green-600');
+                
+                // Reset the form
+                form.reset();
+                
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            })
+            .catch(error => {
+                // Error - show error message
+                formAlert.textContent = 'Oops! There was a problem sending your message. Please try again.';
+                formAlert.classList.remove('hidden', 'bg-green-600');
+                formAlert.classList.add('bg-red-600');
+                
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+                
+                console.error('Error:', error);
             });
         });
+    }
+});
     </script>
 </body>
 </html>
